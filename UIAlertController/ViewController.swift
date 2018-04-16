@@ -14,12 +14,25 @@ class ViewController: UIViewController {
             super.viewDidLoad()
             // Do any additional setup after loading the view, typically from a nib.
       }
+      //세번째 인자를 클로져 사용
+      @IBAction func buttonPressed(_ sender: Any) {
+           let myAlert = UIAlertController(title: "알림", message: "설정된 시간입니다!", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "종료", style: .default, handler: {(action:UIAlertAction) -> Void in
+            self.view.backgroundColor = UIColor.yellow
+            })
+            
+            let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: {(action:UIAlertAction) -> Void in
+                self.view.backgroundColor = UIColor.green
+                  
+            })
 
-      override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
+            myAlert.addAction(okAction)
+            myAlert.addAction(cancelAction)
+            
+            present(myAlert, animated: true, completion: nil)
       }
-
+      
 
 }
 
